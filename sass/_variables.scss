@@ -1,0 +1,39 @@
+@use "sass:math";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap');
+// font-size//
+$font-sm:1rem;
+$font-md:2rem;
+$font-l:5rem;
+$font-xl:6rem;
+$font-xxl:10rem;
+//color //
+$primary:#fff;
+$dark:#111;
+$btn-bg-color:#ff1057;
+//font-family //
+$font-fam:'Poppins',
+sans-serif;
+//padding //
+$pad:0.3125rem; // 5px
+$pad-sm:0.625rem; //10px
+$pad-m:0.9375rem; // 15px//
+$pad-l:1.25rem; //20px//
+$pad-xl:1.875rem; //30px//
+$pad-xxl:2.5rem; //40px//
+//margin //
+$margin:0.3125rem; // 5px //
+$margin-sm:0.625rem; //10px
+$margin-m:0.9375rem; // 15px//
+$margin-l:1.25rem; //20px//
+$margin-xl:1.875rem; //30px//
+$margin-xxl:2.5rem; //40px //
+// font weight //
+$weight-x:100;
+$weight-m:200;
+$weight-l:300;
+$weight-xl:400;
+$weight-xxl:500;
+$box-shad:0 5px 35px rgba(0,
+0,
+0,
+0.08);

@@ -1,0 +1,328 @@
+@mixin position-Items($display, $js-content, $al-items) {
+    display: $display;
+    justify-content: $js-content;
+    align-items: $al-items;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-fam;
+    scroll-behavior: smooth;
+}
+
+p {
+    font-weight: 300;
+    color: $dark;
+}
+
+// body {
+//     min-height: 1000px;
+// }
+@mixin base-Items ($font, $color) {
+    font-size: $font;
+    color: $color;
+}
+
+@mixin box-mod($pos, $top, $left, $width) {
+    position: $pos;
+    top: $top;
+    left: $left;
+    width: $width;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    @include position-Items(flex, center, center);
+    background: url(../image/bg.jpg);
+    background-size: cover;
+    .content {
+        max-width: 900px;
+        text-align: center;
+        h2 {
+            @include base-Items($font-l, $primary);
+        }
+        p {
+            @include base-Items($font-sm, $primary);
+        }
+    }
+}
+
+.btn {
+    @include base-Items($font-sm, $primary);
+    background-color: $btn-bg-color;
+    display: inline-block;
+    padding: $pad-l $pad-xl;
+    margin: $pad-l;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    &:hover {
+        letter-spacing: 5px;
+    }
+}
+
+span {
+    color: $btn-bg-color;
+}
+
+header {
+    @include box-mod(fixed, 0, 0, 100%);
+    padding: $pad-l*2 $pad-l*5;
+    z-index: 10000;
+    @include position-Items(flex, space-between, center);
+    &.sticky {
+        background: $primary;
+        padding: $pad-sm $pad-l*5;
+        box-shadow: $box-shad;
+        .logo {
+            color: $dark;
+        }
+        .nav li a {
+            color: $dark;
+            &:hover {
+                color: $btn-bg-color;
+            }
+        }
+    }
+    .logo {
+        @include base-Items(2rem, $primary);
+        font-weight: $weight-xxl+$weight-m;
+        text-decoration: none;
+        span {
+            color: $btn-bg-color;
+        }
+    }
+    .nav {
+        position: relative;
+        display: flex;
+        li {
+            list-style: none;
+            margin-left: $margin-xl;
+            a {
+                text-decoration: none;
+                color: $primary;
+                font-weight: $weight-l;
+            }
+        }
+    }
+}
+
+// About Section
+@mixin style($color, $font, $weight) {
+    color: $color;
+    font-size: $font;
+    font-weight: $weight;
+}
+
+section {
+    padding: $pad-l *5;
+    background: rgb(247, 245, 245);
+}
+
+.row {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .col50 {
+        position: relative;
+        width: 48%;
+        .imgBox {
+            position: relative;
+            width: 100%;
+            // min-height: 300px;
+            height: 100%;
+            img {
+                @include box-mod(absolute, 0, 0, 100%);
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.textTitle {
+    @include style($dark, 1.5rem, $weight-l);
+    span {
+        @include style($btn-bg-color, 2rem, 700);
+    }
+}
+
+// Menu Section //
+.title {
+    width: 100%;
+    @include position-Items(flex, center, center);
+    flex-direction: column;
+}
+
+.menu {
+    .content {
+        display: flex;
+        justify-content: center;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        margin-top: $margin-xxl;
+        .box {
+            width: 340px;
+            margin: $margin-l;
+            border: 15px solid $primary;
+            box-shadow: $box-shad;
+            .text {
+                padding: $pad-m 0 $pad;
+                h3 {
+                    font-weight: $weight-xl;
+                    color: $dark;
+                }
+            }
+            .imgbox {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                img {
+                    @include box-mod(absolute, 0, 0, 100%);
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+@mixin Flex($display, $content, $wrap, $direction, $marginTop) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: $margin-xxl;
+}
+
+.expert {
+    .content {
+        @include Flex(flex, center, wrap, row, $margin-xxl);
+    }
+    .box {
+        width: 250px;
+        margin: $margin-m;
+        .text {
+            padding: $pad-m 0 $pad;
+            h3 {
+                font-weight: $weight-xl;
+                color: $dark;
+            }
+        }
+    }
+    .imgBox {
+        position: relative;
+        width: 100%;
+        height: 300px;
+    }
+    img {
+        @include box-mod(absolute, 0, 0, 100%);
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.testimony {
+    background: url(../image/bg2.jpg);
+    background-size: cover;
+}
+
+.white {
+    .text-title,
+    p {
+        color: $primary;
+    }
+}
+
+.testimony {
+    .content {
+        @include Flex(flex, center, wrap, row, $margin-xxl);
+        .box {
+            width: 21.25rem;
+            margin: $margin-l;
+            padding: $pad-xxl;
+            background: $primary;
+            @include position-Items(flex, center, center);
+            flex-direction: column;
+            .imgBx {
+                position: relative;
+                width: 5rem;
+                height: 5rem;
+                margin-bottom: $margin-l;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    @include box-mod(absolute, 0, 0, 100%);
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .text {
+                text-align: center;
+                p {
+                    color: #666;
+                    font-style: italic;
+                }
+                h3 {
+                    @include base-Items(1rem, $dark);
+                    margin-top: $margin-l;
+                    color: $btn-bg-color;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.contact {
+    background: url(../image/bg3.jpg);
+    background-size: cover;
+}
+
+.contactForm {
+    padding: 4.6875rem 3.125rem;
+    background: $primary;
+    box-shadow: 0 0.9375rem 3.125rem rgba(0, 0, 0, 0.1);
+    max-width: 31.25rem;
+    margin-top: 3.125rem;
+    h3 {
+        @include base-Items(1.2em, $dark);
+        margin-bottom: $margin-l;
+        font-weight: $weight-xxl;
+    }
+    .inputBox {
+        position: relative;
+        width: 100%;
+        margin-bottom: $margin-l;
+        input,
+        textarea {
+            width: 100%;
+            border: 0.0625rem solid #555;
+            padding: $pad-m;
+            color: $dark;
+            outline: none;
+            font-size: 1rem;
+            font-weight: $weight-l;
+            resize: none;
+            &[type="submit"] {
+                @include base-Items(1em, $primary);
+                background: $btn-bg-color;
+                display: inline-block;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 0.125rem;
+                outline: none;
+                transition: 0.5s;
+                max-width: 6.25rem;
+                font-weight: $weight-xxl;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}

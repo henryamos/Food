@@ -1,0 +1,100 @@
+///Media Queries //
+@media (max-width:991px) {
+    header,
+    header.sticky {
+        padding: $pad-m $pad-l;
+    }
+    header .nav {
+        display: none;
+        &.active {
+            width: 100%;
+            height: calc(100% - 68px);
+            position: fixed;
+            top: 68px;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: $primary;
+        }
+        li {
+            margin-left: 0;
+            a {
+                color: $dark;
+                font-size: 1.6em;
+            }
+        }
+    }
+    .menuToggle {
+        position: relative;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: url(../image/menu.png);
+        background-size: 1.875rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        &.active {
+            background: url(../image/close.png);
+            background-size: 1.5625rem;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    header.sticky .menuToggle {
+        filter: invert(1);
+    }
+    section {
+        padding: $pad-l;
+    }
+    .banner .content h2 {
+        font-size: 2.1rem;
+        color: $primary;
+    }
+    .row {
+        flex-direction: column;
+        .col50 {
+            position: relative;
+            width: 100%;
+            .imgBox {
+                height: 300px;
+                margin-top: $margin-l;
+            }
+        }
+    }
+    .menu .content {
+        margin-top: $margin-l;
+        .box {
+            margin: $margin-sm;
+            .imgbox {
+                height: 260px;
+            }
+        }
+    }
+    .title {
+        text-align: center;
+    }
+    .titleText {
+        font-size: 1.8em;
+        line-height: 1.5em;
+        margin-bottom: $margin-m;
+        font-weight: $weight-l;
+    }
+    .testimony .content .box {
+        width: 320px;
+        padding: $pad-l;
+    }
+    .contactForm {
+        padding: 2.1875rem 2.5rem;
+        margin-top: $margin-l;
+        margin-bottom: $margin-xl;
+    }
+}
+
+@media (max-width:480px) {
+    .banner .content h2 {
+        font-size: 1.8rem;
+        color: $primary;
+    }
+}
